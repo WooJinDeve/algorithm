@@ -1,10 +1,42 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-    public static boolean check(String password) {
-        int ja = 0;
+    private static char[] alpha;
+    private static char[] result;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int L = sc.nextInt();
+        int C = sc.nextInt();
+        alpha = new char[C];
+        result = new char[L];
+
+        for (int i = 0; i < C; i++)
+            alpha[i] = sc.next().charAt(0);
+
+        Arrays.sort(alpha);
+
+        bfs(0, 0, C, L);
+    }
+
+    private static void bfs(int start, int depth, int N, int M) {
+        if (depth == M) {
+            if (check(result))
+                System.out.println(result);
+            return;
+        }
+
+        for (int i = start; i < N; i++) {
+            result[depth] = alpha[i];
+            bfs(i + 1, depth + 1, N, M);
+        }
+    }
+
+    private static boolean check(char[] check) {
         int mo = 0;
-        for (char x : password.toCharArray()) {
+        int ja = 0;
+        for (char x : check) {
             if (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u') {
                 mo += 1;
             } else {
@@ -12,30 +44,5 @@ public class Main {
             }
         }
         return ja >= 2 && mo >= 1;
-    }
-    public static void go(int n, String[] alpha, String password, int i) {
-        if (password.length() == n) {
-            if (check(password)) {
-                System.out.println(password);
-            }
-            return;
-        }
-        if (i >= alpha.length) return;
-        go(n, alpha, password+alpha[i], i+1);
-        go(n, alpha, password, i+1);
-    }
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        
-        String[] alpha = new String[m];
-        for (int i=0; i<m; i++) {
-            alpha[i] = sc.next();
-        }
-        
-        Arrays.sort(alpha);
-        
-        go(n, alpha, "", 0);
     }
 }
