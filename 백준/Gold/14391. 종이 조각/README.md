@@ -18,7 +18,7 @@
 
 <p>아래 그림은 4×4 크기의 종이를 자른 한 가지 방법이다.</p>
 
-<p style="text-align:center"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/14391/1.png" style="height:253px; width:250px"></p>
+<p style="text-align:center"><img alt="" src="" style="height:253px; width:250px"></p>
 
 <p>각 조각의 합은 493 + 7160 + 23 + 58 + 9 + 45 + 91 = 7879 이다.</p>
 
