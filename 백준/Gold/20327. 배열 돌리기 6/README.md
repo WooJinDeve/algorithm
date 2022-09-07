@@ -19,8 +19,8 @@
 <table class="table table-bordered td-center th-center" style="width: 100%;">
 	<tbody>
 		<tr>
-			<td style="width:33%;"><img alt="" src="https://upload.acmicpc.net/f24cff71-7497-4787-b7f3-a9d078b34838/-/preview/" style="width: 200px; height: 201px;"></td>
-			<td style="width:34%;"><img alt="" src="https://upload.acmicpc.net/b1a58aab-4244-40a9-bc79-2c94e2b2d123/-/preview/" style="width: 200px; height: 201px;"></td>
+			<td style="width:33%;"><img alt="" src="" style="width: 200px; height: 201px;"></td>
+			<td style="width:34%;"><img alt="" src="" style="width: 200px; height: 201px;"></td>
 			<td style="width:33%;"><img alt="" src="" style="width: 200px; height: 201px;"></td>
 		</tr>
 		<tr>
