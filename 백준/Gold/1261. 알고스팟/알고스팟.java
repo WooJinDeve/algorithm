@@ -22,17 +22,16 @@ public class Main {
         int[] dx = {0,0,1,-1};
         int[] dy = {1,-1,0,0};
         int[][] d = new int [n][m];
-        Queue<Pair> q = new LinkedList<Pair>();
-        Queue<Pair> next_queue = new LinkedList<Pair>();
-        q.offer(new Pair(0, 0));
+        ArrayDeque<Pair> deque = new ArrayDeque<Pair>();
+        deque.add(new Pair(0, 0));
         for (int i=0; i<n; i++) {
             for (int j=0; j<m; j++) {
                 d[i][j] = -1;
             }
         }
         d[0][0] = 0;
-        while (!q.isEmpty()) {
-            Pair p = q.remove();
+        while (!deque.isEmpty()) {
+            Pair p = deque.poll();
             int x = p.x;
             int y = p.y;
             for (int k=0; k<4; k++) {
@@ -42,17 +41,13 @@ public class Main {
                     if (d[nx][ny] == -1) {
                         if (a[nx][ny] == 0) {
                             d[nx][ny] = d[x][y];
-                            q.offer(new Pair(nx, ny));
+                            deque.addFirst(new Pair(nx, ny));
                         } else {
                             d[nx][ny] = d[x][y]+1;
-                            next_queue.offer(new Pair(nx, ny));
+                            deque.addLast(new Pair(nx, ny));
                         }
                     }
                 }
-            }
-            if (q.isEmpty()) {
-                q = next_queue;
-                next_queue = new LinkedList<Pair>();
             }
         }
         System.out.println(d[n-1][m-1]);
