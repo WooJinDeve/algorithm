@@ -1,22 +1,23 @@
 import java.util.*;
 public class Main {
+    static boolean[] c = new boolean[20*100000+10];
+    static int[] a = new int[20];
+    static int n;
+    static void go(int i, int sum) {
+        if (i == n) {
+            c[sum] = true;
+            return;
+        }
+        go(i+1, sum+a[i]);
+        go(i+1, sum);
+    }
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        boolean[] c = new boolean[20*100000+10];
-        int[] a = new int[20];
-        int n = sc.nextInt();
+        n = sc.nextInt();
         for (int i=0; i<n; i++) {
             a[i] = sc.nextInt();
         }
-        for (int i=0; i<(1<<n); i++) {
-            int sum = 0;
-            for (int j=0; j<n; j++) {
-                if ((i&(1<<j)) != 0) {
-                    sum += a[j];
-                }
-            }
-            c[sum] = true;
-        }
+        go(0, 0);
         for (int i=1;; i++) {
             if (c[i] == false) {
                 System.out.println(i);
