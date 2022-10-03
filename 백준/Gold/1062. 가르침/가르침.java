@@ -1,32 +1,24 @@
 import java.util.*;
 public class Main {
-    static boolean[] learn = new boolean[26];
-    static int count(String[] words) {
+    static int count(int mask, int[] words) {
         int cnt = 0;
-        for (String word : words) {
-            boolean ok = true;
-            for (char x : word.toCharArray()) {
-                if (!learn[x-'a']) {
-                    ok = false;
-                    break;
-                }
+        for (int word : words) {
+            if ((word & ((1<<26)-1-mask)) == 0) {
+                cnt += 1;
             }
-            if (ok) cnt += 1;
         }
         return cnt;
     }
-    static int go(int index, int k, String[] words) {
+    static int go(int index, int k, int mask, int[] words) {
         if (k < 0) return 0;
         if (index == 26) {
-            return count(words);
+            return count(mask, words);
         }
         int ans = 0;
-        learn[index] = true;
-        int t1 = go(index+1, k-1, words);
-        learn[index] = false;
+        int t1 = go(index+1, k-1, mask | (1 << index), words);
         if (ans < t1) ans = t1;
         if (index != 'a'-'a' && index != 'n'-'a' && index != 't'-'a' && index != 'i'-'a' && index != 'c'-'a') {
-            t1 = go(index+1, k, words);
+            t1 = go(index+1, k, mask, words);
             if (ans < t1) ans = t1;
         }
         return ans;
@@ -35,10 +27,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        String[] words = new String[n];
+        int[] words = new int[n];
         for (int i=0; i<n; i++) {
-            words[i] = sc.next();
+            String s = sc.next();
+            for (char x : s.toCharArray()) {
+                words[i] |= (1 << (x-'a'));
+            }
         }
-        System.out.println(go(0,m,words));
+        System.out.println(go(0,m,0,words));
     }
 }
