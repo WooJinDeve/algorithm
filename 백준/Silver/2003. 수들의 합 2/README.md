@@ -8,7 +8,7 @@
 
 ### 분류
 
-두 포인터(two_pointer)
+브루트포스 알고리즘(bruteforcing), 두 포인터(two_pointer)
 
 ### 문제 설명
 
