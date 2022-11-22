@@ -1,0 +1,4 @@
+SELECT ANIMAL_ID, NAME
+FROM animal_ins
+WHERE INTAKE_CONDITION = 'Sick'
+ORDER BY animal_id ASC
