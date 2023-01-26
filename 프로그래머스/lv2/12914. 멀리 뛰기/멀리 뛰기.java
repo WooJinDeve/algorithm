@@ -1,13 +1,13 @@
 class Solution {
-    private static final int DIV = 1234567;
-    
-    public long solution(int n) {
-        int[] arr = new int[2001];
-        arr[0] = 0;
+    public static int solution(int n) {
+        final int DIV = 1234567;
+        int[] arr = new int[n + 1];
+
+        arr[0] = 1;
         arr[1] = 1;
-        arr[2] = 2;
-        for (int i = 3; i <= n; i++) {
-            arr[i] = (arr[i-1] + arr[i - 2]) % DIV;
+
+        for (int i = 2; i <= n; i++) {
+            arr[i] = (arr[i - 2] + arr[i - 1]) % DIV;
         }
 
         return arr[n];
