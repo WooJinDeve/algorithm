@@ -14,7 +14,7 @@
 
 <p><a href="https://www.dots.co/twodots/">Two Dots</a>는 Playdots, Inc.에서 만든 게임이다. 게임의 기초 단계는 크기가 N×M인 게임판 위에서 진행된다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/6a0e30d5-c325-40e4-b8b2-e5878b8dbc49/-/preview/" style="width: 320px; height: 693px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="width: 320px; height: 693px;"></p>
 
 <p>각각의 칸은 색이 칠해진 공이 하나씩 있다. 이 게임의 핵심은 같은 색으로 이루어진 사이클을 찾는 것이다.</p>
 
@@ -23,7 +23,7 @@
 <table class="table table-bordered" style="width: 100%;">
 	<tbody>
 		<tr>
-			<td style="width: 50%; text-align: center;"><img alt="" src="https://upload.acmicpc.net/33712230-43d5-45f7-8b2d-dcb21b9c602c/-/preview/" style="width: 320px; height: 693px;"></td>
+			<td style="width: 50%; text-align: center;"><img alt="" src="" style="width: 320px; height: 693px;"></td>
 			<td style="width: 50%; text-align: center;"><img alt="" src="" style="width: 320px; height: 693px;"></td>
 		</tr>
 	</tbody>
