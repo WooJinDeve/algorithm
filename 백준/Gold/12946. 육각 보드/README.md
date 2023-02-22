@@ -8,7 +8,7 @@
 
 ### 분류
 
-깊이 우선 탐색(dfs), 그래프 이론(graphs), 그래프 탐색(graph_traversal), 수학(math)
+너비 우선 탐색(bfs), 브루트포스 알고리즘(bruteforcing), 깊이 우선 탐색(dfs), 그래프 이론(graphs), 그래프 탐색(graph_traversal)
 
 ### 문제 설명
 
