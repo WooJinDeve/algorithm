@@ -8,7 +8,7 @@
 
 ### 분류
 
-이분 탐색(binary_search), 매개 변수 탐색(parametric_search)
+이분 탐색, 매개 변수 탐색
 
 ### 문제 설명
 
