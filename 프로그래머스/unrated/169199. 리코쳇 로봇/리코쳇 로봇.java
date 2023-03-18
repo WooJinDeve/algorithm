@@ -31,7 +31,6 @@ class Solution {
         map[startX][startY] = 0;
         while (!queue.isEmpty()){
             int[] e = queue.remove();
-            if (e[0] == goalX && e[1] == goalY) return map[e[0]][e[1]];
             for (int i = 0; i < 4; i++) {
                 int x = e[0] + dx[i];
                 int y = e[1] + dy[i];
@@ -47,6 +46,6 @@ class Solution {
                 }
             }
         }
-        return -1;
+        return map[goalX][goalY];
     }
 }
