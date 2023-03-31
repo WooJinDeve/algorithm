@@ -1,21 +1,18 @@
 import java.util.*;
+import java.util.Map.*;
+import java.util.stream.*;
 
 class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
-        int[] answer = new int[photo.length];
-        Map<String, Integer> valueMap = new HashMap<>();
-        for(int i = 0; i < name.length; i++){
-            valueMap.put(name[i], yearning[i]);
-        }
+        Map<String, Integer> map = IntStream.range(0, name.length)
+                .mapToObj(i -> Map.entry(name[i], yearning[i]))
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
 
-
-        for(int i = 0; i < photo.length; i++){
-            answer[i] = Arrays.stream(photo[i])
-                    .filter(valueMap::containsKey)
-                    .mapToInt(valueMap::get)
-                    .sum();
-        }
-
-        return answer;
+        return Arrays.stream(photo)
+                .mapToInt(p -> Arrays.stream(p)
+                        .filter(map::containsKey)
+                        .mapToInt(map::get)
+                        .sum())
+                .toArray();
     }
 }
